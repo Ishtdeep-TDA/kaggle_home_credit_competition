@@ -1,0 +1,12 @@
+# Since the data is huge, think about compressing the data within the dfs and then saving it 
+somewhere after compression (probably kaggle and local)
+
+#### Feature engineering ideas 
+
+* Feature around location (zipcode etc)
+* Feature around total debt, acc balance etc,
+* counts on number of accts, cards, 
+* total of tenor 
+* date from features
+
+
