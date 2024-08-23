@@ -66,8 +66,24 @@ def load_data(data_dict,category):
 
     the data should be pickle files
     '''
-    df_list = []
-    for path in data_dict[category]:    
-        temp_df = pd.read_pickle(path)
-        df_list.append(temp_df)
-    data_dict[category] = df_list
+
+    if category == 'credit':
+        credit_dict = defaultdict()
+        for path in data_dict[category]:    
+            temp_df = pd.read_pickle(path)
+            if temp_df.shape[1] == 79:
+                credit_dict[0].append(temp_df)
+            if temp_df.shape[1] == 19:
+                credit_dict[1].append(temp_df)
+            if temp_df.shape[1] == 6:
+                credit_dict[2].append(temp_df)
+            if temp_df.shape[1] == 45:
+                credit_dict[3].append(temp_df)
+        data_dict[category] = credit_dict
+    else:
+        df_list = []
+        for path in data_dict[category]:    
+            temp_df = pd.read_pickle(path)
+            df_list.append(temp_df)
+        data_dict[category] = df_list
+    
